@@ -7,9 +7,10 @@
 #   hubot what am I listening to? - Displays what you're currently scrobbling.
 #   hubot what's <name> listening to? - Displays what someone's currently scrobbling.
 #   hubot what's everyone listening to? - Displays what everyone's currently scrobbling.
+#   hubot what's playing in the men's room? - Displays what's on the boys' commode clock radio
 
+cheerio = require 'cheerio'
 LastFm = require('lastfm').LastFmNode
-util = require 'util'
 
 module.exports = (robot) ->
 
@@ -73,3 +74,18 @@ module.exports = (robot) ->
           (user.name for user in users).join(', ')
       else
         msg.send "#{name}? Never heard of 'em!"
+
+  robot.respond /(?:what's playing in the )?men's room/i, (msg) ->
+    robot.http('http://wers.tunegenie.com').get() (err, res, body) ->
+      if res.statusCode isnt 200
+        msg.send "Oh no! I can't hear what's playing in the men's room."
+        return
+
+      $ = cheerio.load(body)
+      title = $('.currentonair .song')?.first()?.text()
+      artist = $('.currentonair .song + div > a')?.first()?.text()
+
+      if title and artist
+        msg.send "The boys are currently listening to #{title} by #{artist}"
+      else
+        msg.send "Oh no! I can't hear what's playing in the men's room"
