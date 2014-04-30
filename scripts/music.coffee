@@ -24,9 +24,9 @@ module.exports = (robot) ->
       limit: 1
       handlers:
         success: (data) ->
-          track = data?.recenttracks?.track[0]
+          track = data?.recenttracks?.track?[0]
 
-          if track['@attr'].nowplaying is 'true'
+          if track?['@attr']?.nowplaying is 'true'
             callbacks.success
               title: track.name
               artist: track.artist['#text']
