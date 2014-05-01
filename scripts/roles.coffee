@@ -4,8 +4,7 @@
 # Commands:
 #   hubot <user> is a badass guitarist - assign a role to a user
 #   hubot <user> is not a badass guitarist - remove a role from a user
-#   hubot all about <user> - see what roles a user has
-#   hubot who is <user> - see a random selection of two roles a user has
+#   hubot who is <user> - see what roles a user has
 #
 # Examples:
 #   hubot holman is an ego surfer
@@ -13,10 +12,14 @@
 
 module.exports = (robot) ->
 
+  if process.env.HUBOT_AUTH_ADMIN?
+    robot.logger.warning 'The HUBOT_AUTH_ADMIN environment variable is set not going to load roles.coffee, you should delete it'
+    return
+
   getAmbiguousUserText = (users) ->
     "Be more specific, I know #{users.length} people named like that: #{(user.name for user in users).join(", ")}"
 
-  robot.respond /all about @?([\w .\-]+)\?*$/i, (msg) ->
+  robot.respond /who is @?([\w .\-]+)\?*$/i, (msg) ->
     joiner = ', '
     name = msg.match[1].trim()
 
@@ -34,52 +37,11 @@ module.exports = (robot) ->
             joiner = '; '
           msg.send "#{name} is #{user.roles.join(joiner)}."
         else
-          msg.send "#{name} is dead to me."
+          msg.send "#{name} is nothing to me."
       else if users.length > 1
         msg.send getAmbiguousUserText users
       else
         msg.send "#{name}? Never heard of 'em"
-
-  robot.respond /who is @?([\w .\-]+)\?*$/i, (msg) ->
-    joiner = ' '
-    name = msg.match[1].trim()
-
-    users = robot.brain.usersForFuzzyName(name)
-    if users.length is 1
-      user = users[0]
-      user.roles = user.roles or [ ]
-      if user.roles.length > 0
-
-        if user.roles.length > 6
-          length = user.roles.length
-          first_index = Math.floor(Math.random() * length) % length
-          second_index = Math.floor(Math.random() * length) % length
-          third_index = Math.floor(Math.random() * length) % length
-          while ( first_index == second_index )
-            second_index = Math.floor(Math.random() * length) % length
-          while ( first_index == third_index || third_index == second_index && true )
-            third_index = Math.floor(Math.random() * length) % length
-          roles = [user.roles[first_index], user.roles[second_index], user.roles[third_index]]
-
-        else if user.roles.length > 2
-          length = user.roles.length
-          first_index = Math.floor(Math.random() * length) % length
-          second_index = Math.floor(Math.random() * length) % length
-          while ( first_index == second_index )
-            second_index = Math.floor(Math.random() * length) % length
-
-          roles = [user.roles[first_index], user.roles[second_index]]
-
-        else
-          roles = user.roles
-
-        msg.send "#{name} is #{roles.join(joiner)}."
-      else
-        msg.send "#{name} is dead to me."
-    else if users.length > 1
-      msg.send getAmbiguousUserText users
-    else
-      msg.send "#{name}? Never heard of 'em"
 
   robot.respond /@?([\w .\-_]+) is (["'\w: \-_]+)[.!]*$/i, (msg) ->
     name    = msg.match[1].trim()
