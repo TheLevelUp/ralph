@@ -20,9 +20,10 @@
     "hubot-zulip": "~0.1.0",
     "cheerio": ">= 0.10.7",
     "lastfm": "0.9.0",
+    "pg": "~0.10.2",
     "request": ">= 2.14.0",
-    "tumblrbot": "0.1.0",
     "scoped-http-client": "0.9.8",
+    "tumblrbot": "0.1.0",
     "underscore": "1.5.2"
   },
   "engines": {
