@@ -83,6 +83,6 @@ mountainMe = (msg) ->
   mountains = ['annapurna', 'cho oyu', 'denali', 'eiger north face', 'everest', 'gasherbrum',
     'k2', 'kangchenjunga', 'lhotse', 'makalu', 'matterhorn', 'mont blanc massif', 'nanga parbat',
     'shishapangma', 'washington']
-  mountain = mountains[Math.floor(Math.random() * mountains.length)]
+  mountain = msg.random mountains
   imageMe msg, "#{mountain} mountain", (url) ->
     msg.send url
