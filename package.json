@@ -30,6 +30,6 @@
     "npm": ">= 1.1.x"
   },
   "scripts": {
-    "postinstall": "npm install ./hubot-zulip"
+    "preinstall": "npm install ./hubot-zulip"
   }
 }
