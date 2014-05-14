@@ -14,28 +14,6 @@ LastFm = require('lastfm').LastFmNode
 
 module.exports = (robot) ->
 
-  nowPlaying = (username, callbacks) ->
-    lastfm = new LastFm
-      api_key: process.env.HUBOT_LASTFM_API_KEY
-      secret: process.env.HUBOT_LASTFM_API_SECRET
-      useragent: 'hubot/v1.0 LevelUp Hubot'
-
-    lastfm.request 'user.getRecentTracks',
-      user: username
-      limit: 1
-      handlers:
-        success: (data) ->
-          track = data?.recenttracks?.track?[0]
-
-          if track?['@attr']?.nowplaying is 'true'
-            callbacks.success
-              title: track.name
-              artist: track.artist['#text']
-          else
-            callbacks.success null
-
-        error: callbacks.error
-
   robot.respond /I'm (\w+) on last\.?fm/i, (msg) ->
     username = msg.match[1]
 
@@ -45,30 +23,16 @@ module.exports = (robot) ->
 
     msg.send "Okay, you're #{username} on Last.fm!"
 
-  robot.respond /(?:what's (\w+)|what am I) listening to|np/i, (msg) ->
+  robot.respond /(?:what's (.*)|what am I) listening to|np/i, (msg) ->
     name = msg.match[1] || msg.message.user.name
 
     if name is 'everyone'
-      # TODO List what everyone is scrobbling
+      nowPlayingForAllUsers robot.brain.users(), msg
     else
       users = robot.brain.usersForFuzzyName(name)
 
       if users.length is 1
-        user = users[0]
-        user.lastfm = user.lastfm or {}
-        self = user.id == msg.message.user.id
-
-        if user.lastfm.username
-          nowPlaying user.lastfm.username,
-            success: (track) ->
-              if track
-                msg.send "#{user.name} is listening to #{track.title} by #{track.artist}"
-              else
-                msg.send "#{user.name} is not scrobbling anything!"
-            error: (error) ->
-              msg.send "Oh no! An error occurred: #{error}"
-        else
-          msg.send "I don't know #{user.name}'s Last.fm username!"
+        nowPlayingForUser users[0], msg
       else if users.length > 1
         msg.send "Be more specific, I know #{users.length} people named like that: " +
           (user.name for user in users).join(', ')
@@ -89,3 +53,55 @@ module.exports = (robot) ->
         msg.send "The boys are currently listening to #{title} by #{artist}"
       else
         msg.send "Oh no! I can't hear what's playing in the men's room"
+
+nowPlayingForAllUsers = (users, msg) ->
+  lastfmUsers = (user.lastfm.username for key, user of users when user.lastfm?.username?)
+  nowPlaying = []
+  usersRetrieved = 0
+
+  for lastfmUser in lastfmUsers
+    nowPlayingForLastfmUser lastfmUser,
+      success: (track) ->
+        nowPlaying.push "#{track.title} by #{track.artist}" if track
+        usersRetrieved += 1
+
+        if usersRetrieved >= lastfmUsers.length
+          msg.send 'Everyone is listening to ' + nowPlaying.join(', ')
+
+      error: (error) ->
+        usersRetrieved += 1
+
+nowPlayingForLastfmUser = (username, callbacks) ->
+  lastfm = new LastFm
+    api_key: process.env.HUBOT_LASTFM_API_KEY
+    secret: process.env.HUBOT_LASTFM_API_SECRET
+    useragent: 'hubot/v1.0 LevelUp Hubot'
+
+  lastfm.request 'user.getRecentTracks',
+    user: username
+    limit: 1
+    handlers:
+      success: (data) ->
+        track = data?.recenttracks?.track?[0]
+
+        if track?['@attr']?.nowplaying is 'true'
+          callbacks.success
+            artist: track.artist['#text']
+            title: track.name
+        else
+          callbacks.success null
+
+      error: callbacks.error
+
+nowPlayingForUser = (user, msg) ->
+  if user.lastfm?.username?
+    nowPlayingForLastfmUser user.lastfm.username,
+      success: (track) ->
+        if track
+          msg.send "#{user.name} is listening to #{track.title} by #{track.artist}"
+        else
+          msg.send "#{user.name} is not scrobbling anything!"
+      error: (error) ->
+        msg.send "Oh no! An error occurred: #{error.message}"
+  else
+    msg.send "I don't know #{user.name}'s Last.fm username!"
