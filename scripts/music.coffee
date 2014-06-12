@@ -41,7 +41,9 @@ module.exports = (robot) ->
         msg.send "#{name}? Never heard of 'em!"
 
   robot.respond /(?:who's listening to )(.+)/i, (msg) ->
-    usersListeningToArtist robot.brain.users(), msg.match[1]
+    artist = msg.match[1]
+
+    usersListeningToArtist robot.brain.users(), artist, msg
 
   robot.respond /(?:what's playing in the )?men's room/i, (msg) ->
     robot.http('http://wers.tunegenie.com').get() (err, res, body) ->
@@ -110,21 +112,20 @@ nowPlayingForUser = (user, msg) ->
   else
     msg.send "I don't know #{user.name}'s Last.fm username!"
 
-usersListeningToArtist = (users, artist) ->
+usersListeningToArtist = (users, artist, msg) ->
   listeningToArtist = []
   usersChecked = 0
-  artist = artist.toLowerCase()
+  theArtist = artist.toLowerCase()
 
-  for user in users
-    unless user.lastfm?.username?
-      usersChecked += 1
-      continue
+  usersWithLastFm = (user for key, user of users when user.lastfm?.username?)
+
+  for user in usersWithLastFm
     nowPlayingForLastfmUser user.lastfm.username,
       success: (track) ->
-        listeningToArtist.push user.name if track && track.artist.toLowerCase().indexOf artist >= 0
+        listeningToArtist.push user.name if track && track.artist.toLowerCase() == theArtist
         usersChecked += 1
 
-        if usersChecked >= users.length
+        if usersChecked >= usersWithLastFm.length
           if listeningToArtist.length == 0
             msg.send "Nobody is listening to #{artist}."
           else if listeningToArtist.length == 1
