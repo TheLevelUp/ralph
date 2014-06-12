@@ -113,13 +113,15 @@ nowPlayingForUser = (user, msg) ->
 usersListeningToArtist = (users, artist) ->
   listeningToArtist = []
   usersChecked = 0
+  artist = artist.toLowerCase()
+
   for user in users
     unless user.lastfm?.username?
       usersChecked += 1
       continue
     nowPlayingForLastfmUser user.lastfm.username,
       success: (track) ->
-        listeningToArtist.push user.name if track && track.artist.indexOf artist >= 0
+        listeningToArtist.push user.name if track && track.artist.toLowerCase().indexOf artist >= 0
         usersChecked += 1
 
         if usersChecked >= users.length
