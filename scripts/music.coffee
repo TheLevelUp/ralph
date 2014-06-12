@@ -41,9 +41,7 @@ module.exports = (robot) ->
         msg.send "#{name}? Never heard of 'em!"
 
   robot.respond /(?:who's listening to )(.+)/i, (msg) ->
-    artist = msg.match[1] || "Nickelback"
-
-    usersListeningToArtist robot.brain.users(), artist
+    usersListeningToArtist robot.brain.users(), msg.match[1]
 
   robot.respond /(?:what's playing in the )?men's room/i, (msg) ->
     robot.http('http://wers.tunegenie.com').get() (err, res, body) ->
@@ -114,17 +112,22 @@ nowPlayingForUser = (user, msg) ->
 
 usersListeningToArtist = (users, artist) ->
   listeningToArtist = []
-
+  usersChecked = 0
   for user in users
     unless user.lastfm?.username?
+      usersChecked += 1
       continue
     nowPlayingForLastfmUser user.lastfm.username,
       success: (track) ->
         listeningToArtist.push user.name if track && track.artist.indexOf artist >= 0
-      error: Function.prototype
-  if listeningToArtist.length == 0
-    msg.send "Nobody is listening to #{artist}."
-  else if listeningToArtist.length == 1
-    msg.send "#{listeningToArtist[0]} is listening to #{artist}."
-  else
-    msg.send "People listening to #{artist}: " + listeningToArtist.join ', '
+        usersChecked += 1
+
+        if usersChecked >= users.length
+          if listeningToArtist.length == 0
+            msg.send "Nobody is listening to #{artist}."
+          else if listeningToArtist.length == 1
+            msg.send "#{listeningToArtist[0]} is listening to #{artist}."
+          else
+            msg.send "People listening to #{artist}: " + listeningToArtist.join ', '
+      error: (error) ->
+        usersChecked += 1
