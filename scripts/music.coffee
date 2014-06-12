@@ -7,7 +7,8 @@
 #   hubot what am I listening to? - Displays what you're currently scrobbling.
 #   hubot what's <name> listening to? - Displays what someone's currently scrobbling.
 #   hubot what's everyone listening to? - Displays what everyone's currently scrobbling.
-#   hubot what's playing in the men's room? - Displays what's on the boys' commode clock radio
+#   hubot what's playing in the men's room? - Displays what's on the boys' commode clock radio.
+#   hubot who's listening to <artist>? - Displays who's scrobbling a certain artist.
 
 cheerio = require 'cheerio'
 LastFm = require('lastfm').LastFmNode
@@ -38,6 +39,11 @@ module.exports = (robot) ->
           (user.name for user in users).join(', ')
       else
         msg.send "#{name}? Never heard of 'em!"
+
+  robot.respond /(?:who's listening to )(.+)/i, (msg) ->
+    artist = msg.match[1] || "Nickelback"
+
+    usersListeningToArtist robot.brain.users(), artist
 
   robot.respond /(?:what's playing in the )?men's room/i, (msg) ->
     robot.http('http://wers.tunegenie.com').get() (err, res, body) ->
@@ -105,3 +111,20 @@ nowPlayingForUser = (user, msg) ->
         msg.send "Oh no! An error occurred: #{error.message}"
   else
     msg.send "I don't know #{user.name}'s Last.fm username!"
+
+usersListeningToArtist = (users, artist) ->
+  listeningToArtist = []
+
+  for user in users
+    unless user.lastfm?.username?
+      continue
+    nowPlayingForLastfmUser user.lastfm.username,
+      success: (track) ->
+        listeningToArtist.push user.name if track && track.artist.indexOf artist >= 0
+      error: Function.prototype
+  if listeningToArtist.length == 0
+    msg.send "Nobody is listening to #{artist}."
+  else if listeningToArtist.length == 1
+    msg.send "#{listeningToArtist[0]} is listening to #{artist}."
+  else
+    msg.send "People listening to #{artist}: " + listeningToArtist.join ', '
