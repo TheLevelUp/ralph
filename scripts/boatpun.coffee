@@ -18,7 +18,7 @@
 #   http://www.punoftheday.com/cgi-bin/disppuns.pl?ord=S&cat=2&sub=0202&page=1
 
 module.exports = (robot) ->
-  robot.respond /boat/i, (msg) ->
+  robot.hear /boat/i, (msg) ->
     quotes = [
       "He was arrested for throwing bombs from a boat, but they dropped the charges.",
       "In ancient times, seagoing vessels were much more fuel efficient. They got thousands of miles to the galleon.",
@@ -40,7 +40,7 @@ module.exports = (robot) ->
     ]
     msg.send msg.random quotes
 
-  robot.respond /meat/i, (msg) ->
+  robot.hear /meat/i, (msg) ->
     quotes = [
       "Charles fell into the meat grinder. Now he's ground Chuck.",
       "Nate is pleased by meat puns quite rarely.",

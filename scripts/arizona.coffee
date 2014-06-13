@@ -3,7 +3,7 @@
 # Commands:
 #   hubot arizona - Retuns an arizona fact
 module.exports = (robot) ->
-  robot.respond /arizona/i, (msg) ->
+  robot.hear /arizona/i, (msg) ->
     quotes = [
       "The Arizona ridge-nosed rattlesnake is perhaps the most beautiful of all eleven species of rattlesnakes found in Arizona.",
       "The colors blue and gold are the official state colors.",

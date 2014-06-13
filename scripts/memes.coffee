@@ -1,17 +1,17 @@
 # Description:
 #   Displays images in response to certain regular expressions
 # Commands:
-#   hubot aribot - for when you want approval
-#   hubot capybara bomb [number] - like pug bomb. for capybaras.
-#   hubot hop on - you're gonna get some hop ons
-#   hubot it's happening - ron paul is excited
-#   hubot linux - RMSifies you
-#   hubot hug|touch - no touching
-#   hubot what do we want - for when we want brains
-#   hubot when do we want it - for when we want brains
+#   aribot - for when you want approval
+#   hubot capybara - like pug bomb. for capybaras.
+#   hop on - you're gonna get some hop ons
+#   it's happening - ron paul is excited
+#   linux - RMSifies you
+#   hug|touch - no touching
+#   what do we want - for when we want brains
+#   when do we want it - for when we want brains
 
 module.exports = (robot) ->
-  robot.respond /aribot/i, (msg) ->
+  robot.hear /aribot/i, (msg) ->
     console.log msg
     msg.send 'http://i.imgur.com/vQja8jB.jpg'
 
@@ -37,13 +37,13 @@ module.exports = (robot) ->
   robot.hear /i don't even/i, (msg) ->
     msg.send 'http://i3.kym-cdn.com/photos/images/newsfeed/000/198/010/tysonreaction.gif'
 
-  robot.respond /it's happening/i, (msg) ->
+  robot.hear /it's happening/i, (msg) ->
     msg.send 'http://1.bp.blogspot.com/-vpE6uMJ37dk/UOScrne47aI/AAAAAAAAEL4/Ki-4IWO-SoY/s1600/ron-paul.gif'
 
   robot.hear /lunch is here/i, (msg) ->
     msg.send 'https://i.chzbgr.com/maxW500/7565889280/h1F3B738A/#.gif'
 
-  robot.respond /\slinux\b/i, (msg) ->
+  robot.hear /\slinux\b/i, (msg) ->
     msg.send 'http://i.imgur.com/DXUgvy8.jpg'
 
   robot.hear /magic word/i, (msg) ->
@@ -61,7 +61,7 @@ module.exports = (robot) ->
   robot.respond /torture .* kitten/i, (msg) ->
     msg.send 'http://awesomegifs.com/wp-content/uploads/kitten-mittens-always-sunny.gif'
 
-  robot.respond /what do we want|when do we want it/i, (msg) ->
+  robot.hear /^(what do we want|when do we want it)/i, (msg) ->
     msg.send 'BRAINS'
 
 # Stolen from google-images.coffee

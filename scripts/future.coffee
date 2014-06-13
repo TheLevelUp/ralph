@@ -3,7 +3,7 @@
 # Commands:
 #   hubot the future - Returns an image from the future
 module.exports = (robot) ->
-  robot.respond /(teh|the) +(futar|future)/i, (msg) ->
+  robot.hear /(teh|the) +(futar|future)/i, (msg) ->
     images = [
       'http://www.orchidpalms.com/polyhedra/hedron_vrml.gif',
       'http://upload.wikimedia.org/wikipedia/commons/9/96/Iomega-100-Zip-Drive.jpg',
