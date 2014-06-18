@@ -22,6 +22,9 @@ module.exports = (robot) ->
   robot.hear /da+yum/i, (msg) ->
     msg.send 'http://fc09.deviantart.net/fs71/f/2012/258/8/2/dayum_dayum_dayum___by_mystic_dranomimon-d5erzlw.gif'
 
+  robot.hear /\benhance\b/i, (msg) ->
+    msg.send 'http://stream1.gifsoup.com/view1/2373799/enhance-o.gif'
+
   robot.hear /follow your dreams/i, (msg) ->
     msg.send 'http://i.chzbgr.com/maxW500/7085726208/h2DE3C7F0.gif'
 
