@@ -116,21 +116,24 @@ usersListeningToArtist = (users, artist, msg) ->
   listeningToArtist = []
   usersChecked = 0
   theArtist = artist.toLowerCase()
-
   usersWithLastFm = (user for key, user of users when user.lastfm?.username?)
 
-  for user in usersWithLastFm
-    nowPlayingForLastfmUser user.lastfm.username,
-      success: (track) ->
-        listeningToArtist.push user.name if track && track.artist.toLowerCase() == theArtist
-        usersChecked += 1
+  checkTheUser = (theUser) ->
+      nowPlayingForLastfmUser theUser.lastfm.username,
+        success: (track) ->
+          listeningToArtist.push theUser.name if track && track.artist.toLowerCase() == theArtist
+          usersChecked += 1
 
-        if usersChecked >= usersWithLastFm.length
-          if listeningToArtist.length == 0
-            msg.send "Nobody is listening to #{artist}."
-          else if listeningToArtist.length == 1
-            msg.send "#{listeningToArtist[0]} is listening to #{artist}."
-          else
-            msg.send "People listening to #{artist}: " + listeningToArtist.join ', '
-      error: (error) ->
-        usersChecked += 1
+          if usersChecked >= usersWithLastFm.length
+            if listeningToArtist.length == 0
+              msg.send "Nobody is listening to #{artist}."
+            else if listeningToArtist.length == 1
+              msg.send "#{listeningToArtist[0]} is listening to #{artist}."
+            else
+              msg.send "People listening to #{artist}: " + listeningToArtist.join ', '
+        error: (error) ->
+          msg.send "I couldn't see what #{theUser.name} is listening to! #{error}"
+          usersChecked += 1
+
+  for user in usersWithLastFm
+    checkTheUser(user)
