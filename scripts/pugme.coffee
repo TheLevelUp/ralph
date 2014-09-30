@@ -1,5 +1,11 @@
 # Description:
-#   Pugme is the most important thing in your life
+#   Pugme is the most important thing in life
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#   None
 #
 # Commands:
 #   hubot pug me - Receive a pug
