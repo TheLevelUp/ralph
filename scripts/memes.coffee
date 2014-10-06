@@ -31,10 +31,10 @@ module.exports = (robot) ->
   robot.hear /head explode|mind blown/i, (msg) ->
     msg.send 'http://www.funnypictureblog.com/sites/default/files/xYCYQ.gif'
 
-  robot.respond /hop\s?on/i, (msg) ->
+  robot.hear /hop\s?on/i, (msg) ->
     msg.send 'http://blog.zap2it.com/frominsidethebox/arrested-development-s01e05-visiting-ours.gif'
 
-  robot.respond /hug|touch/i, (msg) ->
+  robot.hear /hug|touch/i, (msg) ->
     msg.send 'http://25.media.tumblr.com/tumblr_mb5b9iejUE1rbhrb1o1_500.gif'
 
   robot.hear /i don't even/i, (msg) ->
