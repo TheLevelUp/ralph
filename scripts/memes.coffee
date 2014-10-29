@@ -67,6 +67,9 @@ module.exports = (robot) ->
   robot.hear /^(what do we want|when do we want it)/i, (msg) ->
     msg.send 'BRAINS'
 
+  robot.respond /what's for lunch/i, (msg) ->
+    msg.send 'https://drive.google.com/open?id=0Ahnoxd3OzgVsdEJpUEhNTFpMQWFaU1p5RTZPZFE1eEE'
+
 # Stolen from google-images.coffee
 imageMe = (msg, query, animated, faces, cb) ->
   cb = animated if typeof animated == 'function'
