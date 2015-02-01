@@ -29,6 +29,10 @@ Then you can interact with hubot by typing `hubot help`.
     help - Displays all of the help commands that Hubot knows about.
     ...
 
+If your scripts are configured using environment variables, you can set these in development using a `.env` file.
+
+    export DATABASE_URL=postgres://localhost/hubot_development
+    export SECRET_KEY=Wt7ijd88JZu_vwXyZek5v0aEAcgb1W2jCJ_TUCNfa24
 
 ### Scripting
 
@@ -139,7 +143,7 @@ UI.
     % heroku config:add HUBOT_CAMPFIRE_TOKEN="..."
 
 Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
+you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42`
 and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
 
     % heroku config:add HUBOT_CAMPFIRE_ROOMS="42,1024"
