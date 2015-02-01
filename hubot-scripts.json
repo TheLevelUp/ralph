@@ -1,4 +1,21 @@
-["applause.coffee", "bees.coffee", "catfacts.coffee", "darksky.coffee", "dealwithit.coffee",
-    "devexcuse.coffee", "eval.coffee", "github-status.coffee", "heroku-status.coffee",
-    "httpcat.coffee", "isup.coffee", "kittens.coffee", "lmgtfy.coffee", "pg-brain.coffee",
-    "pizza.coffee", "sensitive.coffee", "shipit.coffee", "stallman.coffee", "thanks-obama.coffee"]
+[
+  "applause.coffee",
+  "bees.coffee",
+  "catfacts.coffee",
+  "darksky.coffee",
+  "dealwithit.coffee",
+  "devexcuse.coffee",
+  "eval.coffee",
+  "github-status.coffee",
+  "heroku-status.coffee",
+  "httpcat.coffee",
+  "isup.coffee",
+  "kittens.coffee",
+  "lmgtfy.coffee",
+  "pg-brain.coffee",
+  "pizza.coffee",
+  "sensitive.coffee",
+  "shipit.coffee",
+  "stallman.coffee",
+  "thanks-obama.coffee"
+]
