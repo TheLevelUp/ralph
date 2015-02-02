@@ -69,7 +69,7 @@ class Annoyance
 
 class Nate
   constructor: (username) ->
-    @username = username || 'natez0r'
+    @username = username or 'natez0r'
     @limiter = new NateLimiter()
 
   annoy: (robot, query, callback) ->
@@ -82,13 +82,12 @@ class Nate
 
 class NateLimiter
   constructor: (period) ->
-    @period = period || 21600000 # 6 hours
+    @period = period or 21600000 # 6 hours
 
   annoyable: ->
     @last is undefined or (Date.now() - @last.getTime()) > @period
 
   error: (query) ->
-    console.log @next()
     duration = new Duration new Date(), @next()
     "Even Nate has feelings. Please wait another #{duration.toString 1, 2} before annoying him " +
       "about #{query}!"
