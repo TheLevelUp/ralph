@@ -17,6 +17,16 @@ module.exports = (robot) ->
       msg.send error
 
 class Annoyance
+  @PATTERNS: [
+    'hey %{victim}, enjoy some %{query}! %{url}',
+    'thinking about %{victim} and %{query} %{url}',
+    'hey %{victim}, you look like you could use some %{query} %{url}',
+    'found this picture about my %{victim} dream %{url}',
+    'can\'t stop thinking about %{victim} and %{query} %{url}',
+    'hey %{victim}, some %{query} for you! %{url}',
+    'feeling the %{query} today, %{user} %{url}'
+  ]
+
   constructor: (robot, username, query) ->
     @robot = robot
     @username = username
@@ -31,7 +41,12 @@ class Annoyance
     @robot.imageMe @query, callback
 
   status: (url) ->
-    "hey @#{@username}, enjoy some #{@query}! #{url}"
+    pattern = @robot.random Annoyance.PATTERNS
+    interpolations =
+      victim: "@#{@username}"
+      query: @query
+      url: url
+    new Formatter(pattern, interpolations).toString()
 
   tweet: (callback) ->
     @image (url) =>
@@ -40,6 +55,17 @@ class Annoyance
       @twitter.post 'statuses/update', params, (error, tweet) ->
         raise "Error: #{error[0].message} (code #{error[0].code})" if error
         callback "http://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id_str}"
+
+  class Formatter
+    constructor: (pattern, interpolations) ->
+      @pattern = pattern
+      @interpolations = interpolations
+
+    toString: ->
+      message = @pattern
+      for own key, value of @interpolations
+        message = message.replace "%{#{key}}", value
+      message
 
 class Nate
   constructor: (username) ->
