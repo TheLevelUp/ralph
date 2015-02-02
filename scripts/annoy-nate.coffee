@@ -21,10 +21,10 @@ class Annoyance
     'hey %{victim}, enjoy some %{query}! %{url}',
     'thinking about %{victim} and %{query} %{url}',
     'hey %{victim}, you look like you could use some %{query} %{url}',
-    'found this picture about my %{victim} dream %{url}',
+    'dreaming about you, %{victim} %{url}',
     'can\'t stop thinking about %{victim} and %{query} %{url}',
     'hey %{victim}, some %{query} for you! %{url}',
-    'feeling the %{query} today, %{user} %{url}'
+    'feeling the %{query} today, %{victim} %{url}'
   ]
 
   constructor: (robot, username, query) ->
