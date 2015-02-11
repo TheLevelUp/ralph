@@ -15,6 +15,9 @@ module.exports = (robot) ->
     console.log msg
     msg.send 'http://i.imgur.com/vQja8jB.jpg'
 
+  robot.hear /bucks|money/i, (msg) ->
+    msg.send 'http://stuff.ebnj.net/funny/moneygun.gif'
+
   robot.respond /capybara/i, (msg) ->
     imageMe msg, 'capybara', (url) ->
       msg.send url
@@ -63,6 +66,9 @@ module.exports = (robot) ->
 
   robot.respond /torture .* kitten/i, (msg) ->
     msg.send 'http://awesomegifs.com/wp-content/uploads/kitten-mittens-always-sunny.gif'
+
+  robot.hear /unix/i, (msg) ->
+    msg.send 'http://stuff.ebnj.net/funny/jurassicunix.gif'
 
   robot.hear /^(what do we want|when do we want it)/i, (msg) ->
     msg.send 'BRAINS'
