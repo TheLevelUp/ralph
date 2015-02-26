@@ -5,7 +5,6 @@
   "darksky.coffee",
   "dealwithit.coffee",
   "devexcuse.coffee",
-  "eval.coffee",
   "github-status.coffee",
   "heroku-status.coffee",
   "httpcat.coffee",
