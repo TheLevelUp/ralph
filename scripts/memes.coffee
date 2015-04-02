@@ -32,7 +32,7 @@ module.exports = (robot) ->
     msg.send 'http://i.chzbgr.com/maxW500/7085726208/h2DE3C7F0.gif'
 
   robot.hear /head explode|mind blown/i, (msg) ->
-    msg.send 'http://www.funnypictureblog.com/sites/default/files/xYCYQ.gif'
+    msg.send 'http://www.reactiongifs.com/r/2011/09/mind_blown.gif'
 
   robot.hear /hop\s?on/i, (msg) ->
     msg.send 'http://blog.zap2it.com/frominsidethebox/arrested-development-s01e05-visiting-ours.gif'
