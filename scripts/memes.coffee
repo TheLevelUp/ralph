@@ -2,6 +2,7 @@
 #   Displays images in response to certain regular expressions
 # Commands:
 #   aribot - for when you want approval
+#   babers way - the most delicious way
 #   hubot capybara - like pug bomb. for capybaras.
 #   hop on - you're gonna get some hop ons
 #   it's happening - ron paul is excited
@@ -14,6 +15,9 @@ module.exports = (robot) ->
   robot.hear /aribot/i, (msg) ->
     console.log msg
     msg.send 'http://i.imgur.com/vQja8jB.jpg'
+
+  robot.hear /\bbaber'?s\s?way\b/i, (msg) ->
+    msg.send 'http://i.imgur.com/rIC8Vuc.gif'
 
   robot.hear /bucks|money/i, (msg) ->
     msg.send 'http://stuff.ebnj.net/funny/moneygun.gif'
