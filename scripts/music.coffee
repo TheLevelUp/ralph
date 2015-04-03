@@ -24,7 +24,7 @@ module.exports = (robot) ->
 
     msg.send "Okay, you're #{username} on Last.fm!"
 
-  robot.respond /(?:what's (.*)|what am I) listening to|np/i, (msg) ->
+  robot.respond /(?:what(?:'|\s+i)?s (.*)|what am I) listening to|np/i, (msg) ->
     name = msg.match[1] || msg.message.user.name
 
     if name is 'everyone'
@@ -40,12 +40,12 @@ module.exports = (robot) ->
       else
         msg.send "#{name}? Never heard of 'em!"
 
-  robot.respond /(?:who's listening to )(.+)/i, (msg) ->
+  robot.respond /(?:who(?:'|\s+i)?s listening to )(.+)/i, (msg) ->
     artist = msg.match[1]
 
     usersListeningToArtist robot.brain.users(), artist, msg
 
-  robot.respond /(?:what's playing in the )?men's room/i, (msg) ->
+  robot.respond /(?:what(?:'|\s+i)?s playing in the )?(?:men|boy)'?s room/i, (msg) ->
     robot.http('http://wers.tunegenie.com').get() (err, res, body) ->
       if res.statusCode isnt 200
         msg.send "Oh no! I can't hear what's playing in the men's room."
