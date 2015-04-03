@@ -21,5 +21,4 @@ module.exports = (robot) ->
         robot.send {room: ROOM},
           "[Ross has arrived in #{location}](#{link})\n[picture](#{picture_link})"
 
-  callback()
   setInterval callback, POLL_INTERVAL_MINS * 60 * 1000
