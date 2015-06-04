@@ -12,14 +12,16 @@
 #   when do we want it - for when we want brains
 
 module.exports = (robot) ->
+  robot.hear /\b(alarm|fire)\b/i, (msg) ->
+    msg.send 'http://media.giphy.com/media/d8695TvC8G1Co/giphy.gif'
+
   robot.hear /aribot/i, (msg) ->
-    console.log msg
     msg.send 'http://i.imgur.com/vQja8jB.jpg'
 
   robot.hear /\bbaber'?s\s?way\b/i, (msg) ->
     msg.send 'http://i.imgur.com/rIC8Vuc.gif'
 
-  robot.hear /bucks|money/i, (msg) ->
+  robot.hear /\bbucks\b/i, (msg) ->
     msg.send 'http://stuff.ebnj.net/funny/moneygun.gif'
 
   robot.respond /capybara/i, (msg) ->
