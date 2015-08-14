@@ -32,16 +32,16 @@ module.exports = (robot) ->
 
   robot.respond /recruit( me)?/i, (msg) ->
     unless config.consumer_key
-      msg.send "Please set the TWITTER_CONSUMER_KEY environment variable."
+      msg.reply "Please set the TWITTER_CONSUMER_KEY environment variable."
       return
     unless config.consumer_secret
-      msg.send "Please set the TWITTER_CONSUMER_SECRET environment variable."
+      msg.reply "Please set the TWITTER_CONSUMER_SECRET environment variable."
       return
     unless config.access_token
-      msg.send "Please set the TWITTER_ACCESS_TOKEN environment variable."
+      msg.reply "Please set the TWITTER_ACCESS_TOKEN environment variable."
       return
     unless config.access_token_secret
-      msg.send "Please set the TWITTER_ACCESS_TOKEN_SECRET environment variable."
+      msg.reply "Please set the TWITTER_ACCESS_TOKEN_SECRET environment variable."
       return
 
     unless twit
@@ -53,5 +53,5 @@ module.exports = (robot) ->
       include_rts: false
       exclude_replies: true
     , (err, reply) ->
-      return msg.send "Error" if err
-      return msg.send _.unescape(_.last(reply)['text']) if reply[0]['text']
+      return msg.reply "Error" if err
+      return msg.reply _.unescape(_.last(reply)['text']) if reply[0]['text']
