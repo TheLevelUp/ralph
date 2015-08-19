@@ -43,9 +43,6 @@ module.exports = (robot) ->
   robot.hear /hop\s?on/i, (msg) ->
     msg.send 'http://blog.zap2it.com/frominsidethebox/arrested-development-s01e05-visiting-ours.gif'
 
-  robot.hear /hug\b|touch/i, (msg) ->
-    msg.send 'http://25.media.tumblr.com/tumblr_mb5b9iejUE1rbhrb1o1_500.gif'
-
   robot.hear /i don't even/i, (msg) ->
     msg.send 'http://i3.kym-cdn.com/photos/images/newsfeed/000/198/010/tysonreaction.gif'
 
