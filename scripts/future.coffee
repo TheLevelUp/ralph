@@ -12,7 +12,6 @@ module.exports = (robot) ->
       'http://freewarewiki.com/f/msBob.jpg',
       'http://stayornay.com/tech/wp-content/uploads/2010/07/LaserDisc-DVD-Sizes-web.jpg',
       'http://netdna.webdesignerdepot.com/uploads/2009/01/newton.jpg',
-      'http://distilleryimage2.ak.instagram.com/083fe09c405711e3bb0822000a1fbacd_8.jpg',
       'http://media.tumblr.com/d44062e2b0f30fdce7615c90c982b587/tumblr_inline_mkfsczbiUo1qz4rgp.gif',
       'https://lh5.googleusercontent.com/-lXVUj0-i8GA/UL90muHh8WI/AAAAAAAAEow/yX90zMQmqSY/w1149-h862-no/IMG_20121205_111949.jpg'
     ]
