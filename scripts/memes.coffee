@@ -49,9 +49,6 @@ module.exports = (robot) ->
   robot.hear /it's happening/i, (msg) ->
     msg.send 'http://1.bp.blogspot.com/-vpE6uMJ37dk/UOScrne47aI/AAAAAAAAEL4/Ki-4IWO-SoY/s1600/ron-paul.gif'
 
-  robot.hear /lunch is here/i, (msg) ->
-    msg.send 'https://i.chzbgr.com/maxW500/7565889280/h1F3B738A/#.gif'
-
   robot.hear /\slinux\b/i, (msg) ->
     msg.send 'http://i.imgur.com/DXUgvy8.jpg'
 
