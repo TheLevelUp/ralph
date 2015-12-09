@@ -50,7 +50,7 @@ module.exports = (robot) ->
     msg.send 'http://1.bp.blogspot.com/-vpE6uMJ37dk/UOScrne47aI/AAAAAAAAEL4/Ki-4IWO-SoY/s1600/ron-paul.gif'
 
   robot.hear /lunch is here/i, (msg) ->
-    msg.send 'https://i.chzbgr.com/maxW500/7565889280/h1F3B738A/#.gif'
+    msg.send 'https://i.chzbgr.com/maxW500/7565889280/h1F3B738A.gif'
 
   robot.hear /\slinux\b/i, (msg) ->
     msg.send 'http://i.imgur.com/DXUgvy8.jpg'
@@ -77,7 +77,7 @@ module.exports = (robot) ->
     msg.send 'BRAINS'
 
   robot.respond /what's for lunch/i, (msg) ->
-    msg.send 'https://drive.google.com/open?id=0Ahnoxd3OzgVsdEJpUEhNTFpMQWFaU1p5RTZPZFE1eEE'
+    msg.send 'https://docs.google.com/spreadsheets/d/1M-qV4-FBUfQELJaB-gfJ8lfpJQYPlTHeRP4aJZ0Urg8'
 
 # Stolen from google-images.coffee
 imageMe = (msg, query, animated, faces, cb) ->
