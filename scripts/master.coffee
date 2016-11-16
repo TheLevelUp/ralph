@@ -101,7 +101,7 @@ class Project
     if Sugar.Date.isAfter(updatedAt, '12 hours ago')
       Sugar.Date.relative updatedAt
     else
-      "at #{Sugar.Date.long(updatedAt)}"
+      Sugar.Date.format updatedAt, 'on {Dow} {M}/{d}/{yy} at {h}:{mm} {tt}'
 
   updateState: (state, user) ->
     @state().update state, user.name
