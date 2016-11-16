@@ -101,7 +101,7 @@ class Project
     if Sugar.Date.isAfter(updatedAt, '12 hours ago')
       Sugar.Date.relative updatedAt
     else
-      Sugar.Date.long updatedAt
+      "at #{Sugar.Date.long(updatedAt)}"
 
   updateState: (state, user) ->
     @state().update state, user.name
@@ -115,7 +115,7 @@ class ProjectState
   constructor: (project, robot) ->
     @project = project
     @robot = robot
-    @keyBase = 'freezer:projects:' + @project.name.toLowerCase().replace(/\s+/g, '-')
+    @keyBase = 'master:projects:' + @project.name.toLowerCase().replace(/\s+/g, '-')
 
   emoji: ->
     if @state() == ProjectState.FROZEN
