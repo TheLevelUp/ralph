@@ -12,19 +12,19 @@
 Sugar = require 'sugar'
 
 module.exports = (robot) ->
-  robot.hear /freeze ?(.*)/i, (msg) ->
+  robot.respond /freeze ?(.*)/i, (msg) ->
     Project.find msg.match[1], msg, (project) ->
       project.freeze msg.message.user
-      msg.reply project.shortDescription()
+      msg.send project.shortDescription()
 
-  robot.hear /thaw ?(.*)/i, (msg) ->
+  robot.respond /thaw ?(.*)/i, (msg) ->
     Project.find msg.match[1], msg, (project) ->
       project.thaw msg.message.user
-      msg.reply project.shortDescription()
+      msg.send project.shortDescription()
 
-  robot.hear /(?:frozen\?|master|merge\?|thawed\?) ?(.*)/i, (msg) ->
+  robot.respond /(?:frozen\?|master|merge\?|thawed\?) ?(.*)/i, (msg) ->
     Project.find msg.match[1], msg, (project) ->
-      msg.reply project.fullDescription()
+      msg.send project.fullDescription()
 
 class Project
   @PROJECTS:
