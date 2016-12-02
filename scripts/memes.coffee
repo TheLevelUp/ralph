@@ -3,7 +3,6 @@
 # Commands:
 #   aribot - for when you want approval
 #   babers way - the most delicious way
-#   hubot capybara - like pug bomb. for capybaras.
 #   hop on - you're gonna get some hop ons
 #   it's happening - ron paul is excited
 #   linux - RMSifies you
@@ -23,10 +22,6 @@ module.exports = (robot) ->
 
   robot.hear /\bbucks\b/i, (msg) ->
     msg.send 'http://stuff.ebnj.net/funny/moneygun.gif'
-
-  robot.respond /capybara/i, (msg) ->
-    imageMe msg, 'capybara', (url) ->
-      msg.send url
 
   robot.hear /da+yum/i, (msg) ->
     msg.send 'http://i.imgur.com/vu0AC4m.gif'
@@ -58,9 +53,6 @@ module.exports = (robot) ->
   robot.hear /magic word/i, (msg) ->
     msg.send 'http://24.media.tumblr.com/8566ef54aefe210f0706b8768a62ff5c/tumblr_mldilmBIxz1r7rimro1_400.gif'
 
-  robot.hear /\bmountain bomb\b/i, (msg) ->
-    mountainMe msg
-
   robot.hear /pull yourself together/i, (msg) ->
     msg.send 'http://i.imgur.com/JNrl4.gif'
 
@@ -78,29 +70,3 @@ module.exports = (robot) ->
 
   robot.respond /what's for lunch/i, (msg) ->
     msg.send 'https://docs.google.com/spreadsheets/d/1M-qV4-FBUfQELJaB-gfJ8lfpJQYPlTHeRP4aJZ0Urg8'
-
-# Stolen from google-images.coffee
-imageMe = (msg, query, animated, faces, cb) ->
-  cb = animated if typeof animated == 'function'
-  cb = faces if typeof faces == 'function'
-  q = v: '1.0', rsz: '8', q: query, safe: 'active'
-  q.imgtype = 'animated' if typeof animated is 'boolean' and animated is true
-  q.imgtype = 'face' if typeof faces is 'boolean' and faces is true
-  msg.http('http://ajax.googleapis.com/ajax/services/search/images')
-    .query(q)
-    .get() (err, res, body) ->
-      images = JSON.parse(body)
-      images = images.responseData?.results
-      if images?.length > 0
-        image  = msg.random images
-        cb "#{image.unescapedUrl}#.png"
-      else
-        console.log 'imageMe failure: ' + body
-
-mountainMe = (msg) ->
-  mountains = ['annapurna', 'cho oyu', 'denali', 'eiger north face', 'everest', 'gasherbrum',
-    'k2', 'kangchenjunga', 'lhotse', 'makalu', 'matterhorn', 'mont blanc massif', 'nanga parbat',
-    'shishapangma', 'washington']
-  mountain = msg.random mountains
-  imageMe msg, "#{mountain} mountain", (url) ->
-    msg.send url
