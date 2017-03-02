@@ -20,7 +20,7 @@
     "hubot": "^2.11.1",
     "hubot-darksky": "^1.0.2",
     "hubot-fliptable": "^1.2.0",
-    "hubot-giphy": "^0.6.1",
+    "hubot-giphy-gifme": "^0.2.0",
     "hubot-google-images": "^0.2.5",
     "hubot-scripts": "^2.5.3",
     "lastfm": "0.9.0",
