@@ -5,23 +5,15 @@
 #   babers way - the most delicious way
 #   hop on - you're gonna get some hop ons
 #   it's happening - ron paul is excited
-#   linux - RMSifies you
-#   hug|touch - no touching
 #   what do we want - for when we want brains
 #   when do we want it - for when we want brains
 
 module.exports = (robot) ->
-  robot.hear /\b(alarm|fire)\b/i, (msg) ->
-    msg.send 'http://media.giphy.com/media/d8695TvC8G1Co/giphy.gif'
-
   robot.hear /aribot/i, (msg) ->
     msg.send 'http://i.imgur.com/vQja8jB.jpg'
 
   robot.hear /\bbaber'?s\s?way\b/i, (msg) ->
     msg.send 'http://i.imgur.com/rIC8Vuc.gif'
-
-  robot.hear /\bbucks\b/i, (msg) ->
-    msg.send 'http://stuff.ebnj.net/funny/moneygun.gif'
 
   robot.hear /da+yum/i, (msg) ->
     msg.send 'http://i.imgur.com/vu0AC4m.gif'
@@ -46,9 +38,6 @@ module.exports = (robot) ->
 
   robot.hear /lunch is here/i, (msg) ->
     msg.send 'https://i.chzbgr.com/maxW500/7565889280/h1F3B738A.gif'
-
-  robot.hear /\slinux\b/i, (msg) ->
-    msg.send 'http://i.imgur.com/DXUgvy8.jpg'
 
   robot.hear /magic word/i, (msg) ->
     msg.send 'http://24.media.tumblr.com/8566ef54aefe210f0706b8768a62ff5c/tumblr_mldilmBIxz1r7rimro1_400.gif'
