@@ -25,7 +25,7 @@ module.exports = (robot) ->
     msg.send pugArray[Math.floor(Math.random()*pugArray.length)]
 
   robot.respond /pug bomb( (\d+))?/i, (msg) ->
-    count = msg.match[2] || 5
+    count = msg.match[2] || 3
     msg.send pug for pug in pugArray.slice(0, count)
 
   robot.respond /how many pugs are there/i, (msg) ->
