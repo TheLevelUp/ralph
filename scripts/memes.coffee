@@ -3,8 +3,13 @@
 # Commands:
 #   aribot - for when you want approval
 #   babers way - the most delicious way
+#   hubot enhance - for when you want to enhance
 #   hop on - you're gonna get some hop ons
-#   it's happening - ron paul is excited
+#   hubot i don't even - neil degrasse tyson is excited
+#   hubot it's happening - ron paul is excited
+#   hubot taco town
+#   hubot torture a kitten
+#   hubot unix - when you know unix
 #   what do we want - for when we want brains
 #   when do we want it - for when we want brains
 
@@ -18,8 +23,8 @@ module.exports = (robot) ->
   robot.hear /da+yum/i, (msg) ->
     msg.send 'http://i.imgur.com/vu0AC4m.gif'
 
-  robot.hear /\benhance\b/i, (msg) ->
-    msg.send 'http://stream1.gifsoup.com/view1/2373799/enhance-o.gif'
+  robot.respond /\benhance\b/i, (msg) ->
+    msg.send 'https://media.giphy.com/media/yekZxRr4nM1q0/giphy.gif'
 
   robot.hear /follow your dreams/i, (msg) ->
     msg.send 'http://i.chzbgr.com/maxW500/7085726208/h2DE3C7F0.gif'
@@ -30,10 +35,10 @@ module.exports = (robot) ->
   robot.hear /hop\s?on/i, (msg) ->
     msg.send 'http://static.celebuzz.com/uploads/2013/05/23/ad-hopons.gif'
 
-  robot.hear /i don't even/i, (msg) ->
+  robot.respond /i don't even/i, (msg) ->
     msg.send 'http://i3.kym-cdn.com/photos/images/newsfeed/000/198/010/tysonreaction.gif'
 
-  robot.hear /it's happening/i, (msg) ->
+  robot.respond  /it's happening/i, (msg) ->
     msg.send 'http://1.bp.blogspot.com/-vpE6uMJ37dk/UOScrne47aI/AAAAAAAAEL4/Ki-4IWO-SoY/s1600/ron-paul.gif'
 
   robot.hear /lunch is here/i, (msg) ->
