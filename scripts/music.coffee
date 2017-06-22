@@ -7,7 +7,6 @@
 #   hubot what am I listening to? - Displays what you're currently scrobbling.
 #   hubot what's <name> listening to? - Displays what someone's currently scrobbling.
 #   hubot what's everyone listening to? - Displays what everyone's currently scrobbling.
-#   hubot what's playing in the men's room? - Displays what's on the boys' commode clock radio.
 #   hubot who's listening to <artist>? - Displays who's scrobbling a certain artist.
 
 cheerio = require 'cheerio'
@@ -44,21 +43,6 @@ module.exports = (robot) ->
     artist = msg.match[1]
 
     usersListeningToArtist robot.brain.users(), artist, msg
-
-  robot.respond /(?:what(?:'|\s+i)?s playing in the )?(?:men|boy)'?s room/i, (msg) ->
-    robot.http('http://wers.tunegenie.com').get() (err, res, body) ->
-      if res.statusCode isnt 200
-        msg.send "Oh no! I can't hear what's playing in the men's room."
-        return
-
-      $ = cheerio.load(body)
-      title = $('.currentonair .song')?.first()?.text()
-      artist = $('.currentonair .song + div > a')?.first()?.text()
-
-      if title and artist
-        msg.send "The boys are currently listening to #{title} by #{artist}"
-      else
-        msg.send "Oh no! I can't hear what's playing in the men's room"
 
 nowPlayingForAllUsers = (users, msg) ->
   lastfmUsers = (user.lastfm.username for key, user of users when user.lastfm?.username?)
