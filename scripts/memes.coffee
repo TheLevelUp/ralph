@@ -51,7 +51,7 @@ module.exports = (robot) ->
     msg.send 'http://i.imgur.com/JNrl4.gif'
 
   robot.respond /taco town/i, (msg) ->
-    msg.send 'http://i848.photobucket.com/albums/ab49/iamfilthy/taco_town.gif'
+    msg.send 'http://i.imgur.com/nVZ9mug.gif'
 
   robot.respond /torture .* kitten/i, (msg) ->
     msg.send 'http://awesomegifs.com/wp-content/uploads/kitten-mittens-always-sunny.gif'
