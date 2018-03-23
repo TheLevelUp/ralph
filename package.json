@@ -18,7 +18,6 @@
     "cheerio": ">= 0.10.7",
     "duration": "0.2.0",
     "hubot": "^2.11.1",
-    "hubot-darksky": "^1.0.2",
     "hubot-fliptable": "^1.2.0",
     "hubot-giphy-gifme": "^0.2.0",
     "hubot-google-images": "^0.2.5",
