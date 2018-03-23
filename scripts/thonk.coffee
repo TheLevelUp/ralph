@@ -17,7 +17,9 @@ module.exports = (robot) ->
     'http://i0.kym-cdn.com/photos/images/original/001/279/809/172.gif',
     'https://i.imgur.com/zXAA3CV.gif',
     'https://i.imgur.com/hlP0Brh.gif',
-    'https://i.imgur.com/8cLO9So.gif'
+    'https://i.imgur.com/8cLO9So.gif',
+    'https://i.imgur.com/T4sr6vD.png',
+    'https://i.imgur.com/Y2d8wE7.jpg'
   ]
 
   robot.respond /thonk me/i, (msg) ->
