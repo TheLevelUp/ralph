@@ -24,7 +24,7 @@ module.exports = (robot) ->
     msg.send 'http://i.imgur.com/vu0AC4m.gif'
 
   robot.respond /\benhance\b/i, (msg) ->
-    msg.send 'https://media.giphy.com/media/10nMEclFWTPCp2/giphy.gif'
+    msg.send 'https://media.giphy.com/media/3ohc14lCEdXHSpnnSU/giphy.gif'
 
   robot.hear /follow your dreams/i, (msg) ->
     msg.send 'http://i.chzbgr.com/maxW500/7085726208/h2DE3C7F0.gif'
