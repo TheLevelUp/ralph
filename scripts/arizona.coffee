@@ -33,6 +33,6 @@ module.exports = (robot) ->
       "Arizona observes DST from a distance, laughing at those who employ it.",
       "The saguaro cactus is native to the Sonoran Desert in the U.S. state of Arizona, the Mexican state of Sonora, and the Whipple Mountains and Imperial County areas of California.",
       "The saguaro blossom is the State Wildflower of Arizona.",
-      "Although Phoenix is the capital of Arizona, it is well known that Tucson is vastly superior in all ways.",
+      "Although Phoenix is the capital of Arizona, it is well known that Tucson is vastly superior in all ways."
     ]
     msg.send msg.random quotes
