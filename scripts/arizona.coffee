@@ -6,7 +6,7 @@ module.exports = (robot) ->
   robot.hear /arizona/i, (msg) ->
     quotes = [
       "The Arizona ridge-nosed rattlesnake is perhaps the most beautiful of all eleven species of rattlesnakes found in Arizona.",
-      "The colors blue and gold are the official state colors.",
+      "Blue and gold are the official state colors of Arizona.",
       "Located in Fountain Hills is a fountain believed to be the tallest in the world.",
       "Four Corners is noted as the spot in the United States where a person can stand in four states at the same time.",
       "The age of a saguaro cactus is determined by its height.",
@@ -29,9 +29,10 @@ module.exports = (robot) ->
       "The famous labor leader, Ceasar Estrada Chavez, was born in Yuma.",
       "Tombstone, Ruby, Gillette, and Gunsight are among the ghost towns scattered throughout the state.",
       "Harming a saguaro in any manner, including cactus plugging, is illegal by state law in Arizona, and when houses or highways are built, special permits must be obtained to move or destroy any saguaro affected.",
-      "Wesley is from Arizona.",
-      "Arizona observes DST from a distance, laughing at those who employ it."
+      "Wesley and Connor are from Arizona.",
+      "Arizona observes DST from a distance, laughing at those who employ it.",
       "The saguaro cactus is native to the Sonoran Desert in the U.S. state of Arizona, the Mexican state of Sonora, and the Whipple Mountains and Imperial County areas of California.",
-      "The saguaro blossom is the State Wildflower of Arizona."
+      "The saguaro blossom is the State Wildflower of Arizona.",
+      "Although Phoenix is the capital of Arizona, it is well known that Tucson is vastly superior in all ways.",
     ]
     msg.send msg.random quotes
