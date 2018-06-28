@@ -23,6 +23,7 @@
     "hubot-google-images": "^0.2.5",
     "hubot-karma-classic": "^1.0.3",
     "hubot-scripts": "^2.5.3",
+    "hubot-zmachine": "^0.1.0",
     "hubot-zulip": "https://github.com/zulip/hubot-zulip.git#9e7846cab",
     "lastfm": "0.9.0",
     "pg": "~6.4.0",
