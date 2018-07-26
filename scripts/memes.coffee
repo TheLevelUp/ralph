@@ -33,7 +33,7 @@ module.exports = (robot) ->
     msg.send 'http://www.reactiongifs.com/r/2011/09/mind_blown.gif'
 
   robot.hear /hop\s?on/i, (msg) ->
-    msg.send 'http://static.celebuzz.com/uploads/2013/05/23/ad-hopons.gif'
+    msg.send 'https://media.giphy.com/media/3aZL9ajHATskT8HpRs/giphy.gif'
 
   robot.respond /i don't even/i, (msg) ->
     msg.send 'http://i3.kym-cdn.com/photos/images/newsfeed/000/198/010/tysonreaction.gif'
