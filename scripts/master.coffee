@@ -108,9 +108,9 @@ class Project
 
 class ProjectState
   @FROZEN: 'frozen'
-  @FROZEN_EMOJI: [':icecream:', ':snowboarder:', ':snowflake:', ':snowman:']
+  @FROZEN_EMOJI: [':ice_cream:', ':snowboarder:', ':snowflake:', ':snowman:']
   @THAWED: 'thawed'
-  @THAWED_EMOJI: [':beach_with_umbrella:', ':sun_with_face:', ':sunny:']
+  @THAWED_EMOJI: [':beach_umbrella:', ':sun_face:', ':sunny:']
 
   constructor: (project, robot) ->
     @project = project
