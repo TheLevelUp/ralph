@@ -20,6 +20,10 @@ module.exports = (robot) ->
   robot.hear /\bbaber'?s\s?way\b/i, (msg) ->
     msg.send 'http://i.imgur.com/rIC8Vuc.gif'
 
+  robot.hear /bee+s?\b/i, (message) ->
+    if Math.random() <= 0.05
+      message.send "http://i.imgur.com/qrLEV.gif"
+
   robot.hear /da+yum/i, (msg) ->
     msg.send 'http://i.imgur.com/vu0AC4m.gif'
 
