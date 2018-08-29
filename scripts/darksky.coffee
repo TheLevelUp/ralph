@@ -1,6 +1,7 @@
 # NOTE: this is from https://github.com/hubot-scripts/hubot-darksky/pull/4
-# that adds API key support; we can switch back to hubot-darksky package after
-# it gets merged
+# and https://github.com/hubot-scripts/hubot-darksky/pull/5
+# that adds API key and feels-like-temp support; we can switch back to
+# hubot-darksky package after they gets merged
 #
 # Description
 #   Grabs the current forecast from Dark Sky
@@ -61,7 +62,7 @@ lookupWeatherAndRespond = (msg, lat, lng, separator, geocoded_address) ->
         return
 
       response = "Weather for #{geocoded_address} (Powered by DarkSky https://darksky.net/poweredby/)"
-      response += "#{separator}Currently: #{result.currently.summary} #{result.currently.temperature}°C"
+      response += "#{separator}Currently: #{result.currently.summary} #{result.currently.temperature}°C (feels like #{result.currently.apparentTemperature}°C)"
       response += "#{separator}Today: #{result.hourly.summary}"
       response += "#{separator}Coming week: #{result.daily.summary}"
       response = response.replace /-?(\d+\.?\d*)°C/g, (match) ->
