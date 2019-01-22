@@ -15,7 +15,10 @@ module.exports = (robot) ->
     'https://imgur.com/H9HgG0t.jpg',
     'https://imgur.com/5rMknuM.jpg',
     'https://imgur.com/DC8gDBu.jpg',
-    'https://imgur.com/yfEw7GQ.jpg'
+    'https://imgur.com/yfEw7GQ.jpg',
+    'https://imgur.com/ZKCEgpr.jpg',
+    'https://imgur.com/CtduXH5.jpg',
+    'https://imgur.com/FAiK4Vs.jpg'
   ]
 
   robot.respond /screech/i, (msg) ->
