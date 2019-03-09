@@ -20,7 +20,7 @@
     "scoped-http-client": "0.9.8",
     "sugar": "^2.0.2",
     "tumblrbot": "0.1.0",
-    "twit": "^2.2.9",
+    "twit": "^2.2.11",
     "underscore": "1.5.2"
   },
   "engines": {
