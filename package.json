@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "author": "LevelUp Engineering <tech@thelevelup.com>",
   "description": "Sower of chaos and madness",
+  "repository": "https://github.com/TheLevelUp/hubot-ralph",
+  "license": "MIT",
   "dependencies": {
     "cheerio": ">= 0.10.7",
     "duration": "0.2.0",
