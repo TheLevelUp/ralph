@@ -1,19 +1,8 @@
 {
-  "name": "hosted-hubot",
-  "version": "2.4.8",
-  "author": "GitHub Inc.",
-  "keywords": "github hubot campfire bot",
-  "description": "A simple helpful Robot for your Company",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/github/hubot/raw/master/LICENSE"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/github/hubot.git"
-  },
+  "name": "ralph",
+  "version": "0.0.1",
+  "author": "LevelUp Engineering <tech@thelevelup.com>",
+  "description": "Sower of chaos and madness",
   "dependencies": {
     "cheerio": ">= 0.10.7",
     "duration": "0.2.0",
@@ -35,7 +24,6 @@
     "underscore": "1.5.2"
   },
   "engines": {
-    "node": "6.11.1",
-    "npm": "^3.10.10"
+    "node": "0.10.x"
   }
 }
