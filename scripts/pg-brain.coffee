@@ -2,7 +2,7 @@
 #   Stores the brain in Postgres
 #
 # Dependencies:
-#   "pg": "~0.10.2"
+#   "pg": "~7"
 #
 # Configuration:
 #   DATABASE_URL
