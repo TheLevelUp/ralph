@@ -1,41 +1,31 @@
 {
-  "name": "hosted-hubot",
-  "version": "2.4.8",
-  "author": "GitHub Inc.",
-  "keywords": "github hubot campfire bot",
-  "description": "A simple helpful Robot for your Company",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/github/hubot/raw/master/LICENSE"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/github/hubot.git"
-  },
+  "name": "ralph",
+  "version": "0.0.1",
+  "author": "LevelUp Engineering <tech@thelevelup.com>",
+  "description": "Sower of chaos and madness",
+  "repository": "https://github.com/TheLevelUp/hubot-ralph",
+  "license": "MIT",
   "dependencies": {
     "cheerio": ">= 0.10.7",
     "duration": "0.2.0",
-    "hubot": "^2.11.1",
+    "hubot": "^3.3.1",
     "hubot-fliptable": "^1.2.0",
     "hubot-giphy-gifme": "^0.2.0",
     "hubot-google-images": "^0.2.5",
     "hubot-karma-classic": "^1.0.3",
     "hubot-scripts": "^2.5.3",
     "hubot-zmachine": "^0.1.0",
-    "hubot-zulip": "https://github.com/zulip/hubot-zulip.git#9e7846cab",
+    "hubot-zulip": "TheLevelUp/hubot-zulip#depend-on-levelup-zulip-package",
     "lastfm": "0.9.0",
-    "pg": "~6.4.0",
+    "pg": "~7.12",
     "request": ">= 2.14.0",
     "scoped-http-client": "0.9.8",
     "sugar": "^2.0.2",
     "tumblrbot": "0.1.0",
-    "twit": "^2.2.9",
+    "twit": "^2.2.11",
     "underscore": "1.5.2"
   },
   "engines": {
-    "node": "6.11.1",
-    "npm": "^3.10.10"
+    "node": "0.10.x"
   }
 }
