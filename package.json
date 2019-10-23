@@ -26,6 +26,7 @@
     "underscore": "1.5.2"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "12.12.x",
+    "npm": "6.12.x"
   }
 }
