@@ -14,7 +14,7 @@
 #    None
 #
 # Author:
-#    @km42
+#    @km42levelup
 
 party = ":a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a:
 
