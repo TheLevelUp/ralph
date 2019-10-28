@@ -16,25 +16,25 @@
 # Author:
 #    @km42levelup
 
-party = ":a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a:
+party = ":a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a:
 
-:b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b:
+:b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b:
 
-:a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a:
+:a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a:
 
-:b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b:
+:b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b:
 
-:a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a:
+:a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a:
 
-:b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b:
+:b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b:
 
-:a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a:
+:a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a:
 
-:b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b:
+:b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b:
 
-:a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a:
+:a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a:
 
-:b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b: :a: :b:"
+:b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b::a::b:"
 
 module.exports = (robot) ->
     robot.respond /party ([^\ ]+) ([^\ ]+)/i, (msg) ->
