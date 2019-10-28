@@ -9,6 +9,7 @@
 #
 # Commands:
 #    hubot party <emoji> <emoji> - ralph parties with your two emoji
+#    hubot party <emoji> <emoji> WxH - ralph parties with your two emoji in a W by H rectangle.
 #
 # Notes:
 #    None
