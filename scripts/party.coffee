@@ -34,15 +34,15 @@ party = (emoji_one, emoji_two, width, height) ->
     i = 0
     while i < height
         if ((i % 2) == 0)
-            paragraph += line_one + '\n\n'
+            paragraph += line_one + '\n'
         else
-            paragraph += line_two + '\n\n'
+            paragraph += line_two + '\n'
         i++
     return paragraph
 
 
 module.exports = (robot) ->
-    robot.respond /party ([^\ ]+) ([^\ ]+)( [\d]+x[\d]+$)?/i, (msg) ->
+    robot.respond /party\s+(\S+)\s+(\S+)(\s+[\d]+x[\d]+$)?/i, (msg) ->
         emoji_one = msg.match[1]
         emoji_two = msg.match[2]
         width = DEFAULT_WIDTH
