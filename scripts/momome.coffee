@@ -32,7 +32,8 @@ module.exports = (robot) ->
     'https://s3.amazonaws.com/www.momobot.net/momo/IMG_0863.JPG'
     'https://s3.amazonaws.com/www.momobot.net/momo/IMG_1624.JPG'
     'https://s3.amazonaws.com/www.momobot.net/momo/IMG_2123.JPG'
-    'https://s3.amazonaws.com/www.momobot.net/momo/k_IMG_2203.JPG'
+    'https://s3.amazonaws.com/www.momobot.net/momo/k_IMG_2203.JPG',
+    'https://s3.amazonaws.com/www.momobot.net/momo/Photo_May_23,_1_33_25_AM.jpg'
   ]
 
   robot.respond /momo me/i, (msg) ->
@@ -44,4 +45,3 @@ module.exports = (robot) ->
 
   robot.respond /how many momos are there/i, (msg) ->
     msg.send "There are #{momoArray.length} momos."
-
