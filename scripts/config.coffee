@@ -5,5 +5,5 @@
 #   hubot config me - replies with a link to the ENV var doc
 
 module.exports = (robot) ->
-  robot.hear /config me/i, (msg) ->
+  robot.respond /config me/i, (msg) ->
     msg.send "https://github.com/TheLevelUp/guides/blob/master/platform/ops-environment-variables.md"
