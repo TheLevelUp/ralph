@@ -1,1 +1,1 @@
-web: bin/hubot -a zulip -n Ralph
+bot: bin/hubot -a zulip -n "${HUBOT_NAME:-Ralph}"
