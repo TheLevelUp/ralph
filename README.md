@@ -42,7 +42,7 @@ Ralph is deployed on [Heroku](https://heroku.com/) through the [lu-ralph](https:
 * [lu-stg-ralph-rw-va](https://dashboard.heroku.com/apps/lu-stg-ralph-rw-va)
 * [lu-prd-ralph-rw-va](https://dashboard.heroku.com/apps/lu-prd-ralph-rw-va)
 
-Pushing to the `master` branch of [thelevelup/hubot-ralph](https://github.com/thelevelup/hubot-ralph) will automatically trigger a deployment to staging. You can test your changes by addressing Ralph Staging in the [Zulip #test stream](https://levelup.zulipchat.com/#narrow/stream/25709-test):
+Pushing to the `main` branch of [thelevelup/hubot-ralph](https://github.com/thelevelup/ralph) will automatically trigger a deployment to staging. You can test your changes by addressing Ralph Staging in the [Zulip #test stream](https://levelup.zulipchat.com/#narrow/stream/25709-test):
 
 > **Ross:** ralph staging ping<br>
 > **Ralph Staging:** PONG
