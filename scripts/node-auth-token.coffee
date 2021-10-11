@@ -5,5 +5,5 @@
 #   hubot node_auth_token me- Reply with link
 
 module.exports = (robot) ->
-  robot.respond /node_auth_token me/i, (msg) ->
+  robot.respond /node\_auth\_token me/i, (msg) ->
     msg.send "https://ghdocs.grubhub.com/architecture/platform/standards-and-practices/github/actions/packages/"
