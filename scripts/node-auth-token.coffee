@@ -1,10 +1,9 @@
 # Description:
-#   Link for adding NODE_AUTH_TOKEN for private node repos.
+#   Link for adding node_auth_token for private node repos.
 #
 # Commands:
-#   hubot NODE_AUTH_TOKEN - Reply with link
-
+#   hubot node_auth_token me- Reply with link
 
 module.exports = (robot) ->
-  robot.respond /NODE_AUTH_TOKEN me/i, (msg) ->
+  robot.respond /node_auth_token me/i, (msg) ->
     msg.send "https://ghdocs.grubhub.com/architecture/platform/standards-and-practices/github/actions/packages/"
