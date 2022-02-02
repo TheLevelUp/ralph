@@ -38,6 +38,7 @@ class Project
     'order-ahead-network': 'Order Ahead Network'
     'network': 'Order Ahead Network'
     'oan': 'Order Ahead Network'
+    'payments': 'Payments'
 
   @DEFAULTS:
     'platform': 'Mothership'
