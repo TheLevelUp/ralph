@@ -32,7 +32,7 @@
     "sugar": "^2.0.2",
     "tumblrbot": "0.1.0",
     "twit": "^2.2.9",
-    "underscore": "1.5.2"
+    "underscore": "1.12.2"
   },
   "engines": {
     "node": "6.11.1",

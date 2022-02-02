@@ -44,6 +44,7 @@ class Project
     'platform': 'Mothership'
     'platform-order-ahead': 'Order Ahead'
     'platform-order-ahead-network': 'Order Ahead Network'
+    'payments': 'Payments'
 
   constructor: (name, robot) ->
     @name = name
