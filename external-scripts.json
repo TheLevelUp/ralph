@@ -3,5 +3,6 @@
   "hubot-google-images",
   "hubot-giphy-gifme",
   "hubot-karma-classic",
+  "hubot-schedule",
   "hubot-zmachine"
 ]

@@ -17,11 +17,12 @@
   "dependencies": {
     "cheerio": ">= 0.10.7",
     "duration": "0.2.0",
-    "hubot": "^2.11.1",
+    "hubot": "^3.3.2",
     "hubot-fliptable": "^1.2.0",
     "hubot-giphy-gifme": "^0.2.0",
     "hubot-google-images": "^0.2.5",
     "hubot-karma-classic": "^1.0.3",
+    "hubot-schedule": "~0.7.0",
     "hubot-scripts": "^2.5.3",
     "hubot-zmachine": "^0.1.0",
     "hubot-zulip": "https://github.com/zulip/hubot-zulip.git#9e7846cab",
